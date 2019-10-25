@@ -1,6 +1,5 @@
-from   MyTemplates.myFigure              import *
-from   MyTemplates.linestyle.publication import *
-from   MyTemplates.linestyle             import * 
+from   my_mpl_template.myFigure              import *
+from   my_mpl_template.linestyle             import * 
 
 
 

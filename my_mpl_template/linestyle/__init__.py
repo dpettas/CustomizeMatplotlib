@@ -1,4 +1,7 @@
 
-from MyTemplates.linestyle.LineStyle_class import *
-from MyTemplates.linestyle.publication     import *
-from MyTemplates.linestyle.presentation    import *
+from my_mpl_template.linestyle.LineStyle_class import *
+from my_mpl_template.linestyle.publication     import *
+from my_mpl_template.linestyle.presentation    import *
+
+
+

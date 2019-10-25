@@ -1,5 +1,6 @@
-from MyTemplates.linestyle.LineStyle_class import *
-from MyTemplates.linestyle.dashes          import *
+from my_mpl_template.linestyle        import *
+from my_mpl_template.linestyle.dashes import *
+
 
 White = []
 Black = []
@@ -15,12 +16,12 @@ Gray  = []
 
 linewidth = 4.5
 Default     = LineStyle (linewidth = linewidth, color = "#010101", dashes = [])
-for dash in dashes:
-	White .append  ( LineStyle (linewidth = linewidth, color = "#FFFFFF", dashes = dash) ) 
-	Black .append  ( LineStyle (linewidth = linewidth, color = "#010101", dashes = dash) ) 
-	Red   .append  ( LineStyle (linewidth = linewidth, color = "#F05654", dashes = dash) ) 
-	Blue  .append  ( LineStyle (linewidth = linewidth, color = "#5FA2D8", dashes = dash) )
-	Orange.append  ( LineStyle (linewidth = linewidth, color = "#F89A2A", dashes = dash) )
-	Cyan  .append  ( LineStyle (linewidth = linewidth, color = "#29B2B2", dashes = dash) )
-	Green .append  ( LineStyle (linewidth = linewidth, color = "#60BF6E", dashes = dash) )
-	Gray  .append  ( LineStyle (linewidth = linewidth, color = "#4E4E4E", dashes = dash) )
+for d in dash:
+	White .append  ( LineStyle (linewidth = linewidth, color = "#FFFFFF", dashes = d) ) 
+	Black .append  ( LineStyle (linewidth = linewidth, color = "#010101", dashes = d) ) 
+	Red   .append  ( LineStyle (linewidth = linewidth, color = "#F05654", dashes = d) ) 
+	Blue  .append  ( LineStyle (linewidth = linewidth, color = "#5FA2D8", dashes = d) )
+	Orange.append  ( LineStyle (linewidth = linewidth, color = "#F89A2A", dashes = d) )
+	Cyan  .append  ( LineStyle (linewidth = linewidth, color = "#29B2B2", dashes = d) )
+	Green .append  ( LineStyle (linewidth = linewidth, color = "#60BF6E", dashes = d) )
+	Gray  .append  ( LineStyle (linewidth = linewidth, color = "#4E4E4E", dashes = d) )

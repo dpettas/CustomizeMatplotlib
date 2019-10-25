@@ -2,6 +2,9 @@
 from   matplotlib.axes        import Axes
 
 
+__SUBSCRIPTFONTSIZE__ = 18
+
+
 class MatplotlibTemplate(Axes):
     """ Customized Template """
     name = "matplotlibtemplate"
