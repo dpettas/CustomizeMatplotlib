@@ -1,8 +1,5 @@
 
 
-import sys 
-
-sys.path.append("D://MyTemplate_matplotlib//MyTemplates")
 
 from   FileData import FileData
 import LineStyle         as LS 

@@ -1,5 +1,5 @@
-from LineStyle_class import *
-from dashes          import *
+from MyTemplates.linestyle.LineStyle_class import *
+from MyTemplates.linestyle.dashes          import *
 
 White = []
 Black = []

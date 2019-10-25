@@ -1,9 +1,7 @@
+from   MyTemplates.myFigure              import *
+from   MyTemplates.linestyle.publication import *
+from   MyTemplates.linestyle             import * 
 
-
-from publication import *
-from myFigure    import *
-
-import matplotlib.pyplot as plt
 
 
 
