@@ -1,7 +1,7 @@
-import matplotlib.projections as     proj
-import my_mpl_template.linestyle.publication as     LS
-from   my_mpl_template.MatplotlibTemplate    import *
-import matplotlib.pyplot      as     plt
+import matplotlib.projections                      as     proj
+import my_mpl_template.linestyle.publication       as     LS
+import matplotlib.pyplot                           as     plt
+from   my_mpl_template.template.matplotlibtemplate import *
 
 
 

@@ -1,7 +1,7 @@
 
-import matplotlib.pyplot as     plt
-from   matplotlib.figure import Figure
-
+import matplotlib.pyplot                           as     plt
+from   matplotlib.figure                           import Figure
+from   my_mpl_template.template.customtemplate     import *
 
 __X_FIGSIZE_INCHES__ = 6.4
 __Y_FIGSIZE_INCHES__ = 4.8
@@ -19,6 +19,12 @@ class ConstFigSize(Figure):
 
         super().__init__(_figsize, *args, **kwargs)
         
+
+    def add_subplot(self, gridspec ):
+
+        return super().add_subplot( gridspec, projection = 'customtemplate'   )
+
+
 
 
 def figure(nrows = 1, ncols =1, figsize= (__X_FIGSIZE_INCHES__,__Y_FIGSIZE_INCHES__)):

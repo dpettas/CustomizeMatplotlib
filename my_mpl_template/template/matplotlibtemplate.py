@@ -1,8 +1,11 @@
 
 from   matplotlib.axes        import Axes
-
+from   matplotlib             import ticker
 
 __SUBSCRIPTFONTSIZE__ = 18
+
+icounter = -1
+subscripts = [r"$(a)$",r"$(b)$",r"$(c)$",r"$(d)$",r"$(e)$",r"$(d)$",r"$(f)$",r"$(g)$",r"$(i)$"]
 
 
 class MatplotlibTemplate(Axes):
@@ -46,7 +49,7 @@ class MatplotlibTemplate(Axes):
         tmp_s = s
         if not s: tmp_s = self.__get_subscript()
 
-        return super().text( x, y, tmp_s, fontsize = fontsize, fontdict=None, withdash=False, transform=self.transAxes)
+        return super().text( x, y, tmp_s, fontsize = fontsize, fontdict=None,  transform=self.transAxes)
 
 
     def __get_subscript(self):
