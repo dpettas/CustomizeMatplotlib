@@ -4,7 +4,7 @@ import matplotlib
 import numpy  as np
 import pandas as pd
 
-from Column  import * 
+from my_mpl_template.Column  import * 
 from sys     import exit
 from os.path import isfile
 

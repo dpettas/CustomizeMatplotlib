@@ -16,14 +16,29 @@ class CustomTemplate(MatplotlibTemplate):
     """
     name = 'customtemplate'
 
-    def plot(self, x, y, style = LS.Black[0], **kwargs):
+    def plot(self, x, y, style = None, **kwargs):
         
-        return super().plot(x, y, linewidth = style.linewidth, 
-                                  color     = style.color    ,
-                                  dashes    = style.dashes   ,  **kwargs)
+        if style:
+          kwargs['linewidth'] = style.linewidth
+          kwargs['color']     = style.color
+          kwargs['dashes']    = style.dashes
+
+
+        return super().plot(x, y, **kwargs)
     
 
 
 
+    def triplot(self,*args, style = None, **kwargs):
+
+      if style:
+        kwargs['linewidth'] = style.linewidth * 0.15
+        kwargs['color'    ] = style.color
+        kwargs['dashes'   ] = style.dashes
+        kwargs['alpha'    ] = style.alpha
+
+      
+      return super().triplot(*args, **kwargs)
+    
 
 proj.register_projection(CustomTemplate)
