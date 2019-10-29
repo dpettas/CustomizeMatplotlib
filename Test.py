@@ -1,10 +1,10 @@
 
 import my_mpl_template          as     my_mpl
+import matplotlib.pyplot        as     plt
 from   my_mpl_template          import Blue, Red, Green,Black, Orange
 from   my_mpl_template          import figure
-
 from   my_mpl_template.FileData import FileData
-import matplotlib.pyplot as plt
+
 
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
