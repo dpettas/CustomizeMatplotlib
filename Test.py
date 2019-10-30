@@ -27,7 +27,7 @@ my_mpl.graph_mode("publication")
 # Define number of rows and columns 
 # Note that each figure has size (6.4,4.8) inches 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-fig, gs = figure(nrows = 1, ncols = 1)
+fig, gs = figure(nrows = 1, ncols = 2)
 
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -36,6 +36,7 @@ fig, gs = figure(nrows = 1, ncols = 1)
 
 ax = []
 ax.append( fig.add_subplot(gs[0,0])  )
+ax.append( fig.add_subplot(gs[0,1])  )
 
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -55,6 +56,20 @@ ax[i].set_limit( xrange = (0.0, 20.0, 4.0, 0.50),
 
 ax[i].legend()
 ax[i].subscript()
+
+i = 1
+ax[i].set_xlabel(r"$Re$")
+ax[i].set_ylabel(r"$H_2$")
+ax[i].plot(F0["Re"],F0["H2"], style = Blue  [0]  ,label = r"$El = 0.00$")
+ax[i].plot(F1["Re"],F1["H2"], style = Red   [0]  ,label = r"$El = 0.25$")
+ax[i].plot(F2["Re"],F2["H2"], style = Green [0]  ,label = r"$El = 0.50$")
+
+ax[i].set_limit( xrange = (0.0, 20.0, 4.0, 0.50), 
+	             yrange = (0.0, 16.0, 1.0, 0.25))
+
+ax[i].legend()
+ax[i].subscript()
+
 
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
