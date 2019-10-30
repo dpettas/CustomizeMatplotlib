@@ -20,9 +20,9 @@ class ConstFigSize(Figure):
         super().__init__(_figsize, *args, **kwargs)
         
 
-    def add_subplot(self, gridspec ):
+    def add_subplot(self, gridspec, **kwargs ):
 
-        return super().add_subplot( gridspec, projection = 'customtemplate'   )
+        return super().add_subplot( gridspec, **kwargs, projection = 'customtemplate'   )
 
 
 
