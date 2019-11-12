@@ -30,9 +30,10 @@ class MatplotlibTemplate(Axes):
         return super().set_ylim(bottom, top)
 
     def set_limit(self, xrange = None, yrange = None):
-
-        self.set_xlim(left    = xrange[0], right =  xrange[1], step = xrange[2], step_minor = xrange[3]  )
-        self.set_ylim(bottom  = yrange[0], top   =  yrange[1], step = yrange[2], step_minor = yrange[3]  )
+        if xrange:
+            self.set_xlim(left    = xrange[0], right =  xrange[1], step = xrange[2], step_minor = xrange[3]  )
+        if yrange:
+            self.set_ylim(bottom  = yrange[0], top   =  yrange[1], step = yrange[2], step_minor = yrange[3]  )
 
     def xTicksLocator  (self, step = None , step_minor = None):
 
