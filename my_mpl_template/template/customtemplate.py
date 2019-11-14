@@ -2,6 +2,7 @@ import matplotlib.projections                      as proj
 import my_mpl_template.linestyle.publication       as LS
 import matplotlib.pyplot                           as plt
 import matplotlib.tri                              as mtri
+import matplotlib                                  as mpl
 import numpy                                       as np
 from   my_mpl_template.template.matplotlibtemplate import *
 from   collections                                 import OrderedDict
@@ -139,6 +140,29 @@ class CustomTemplate(MatplotlibTemplate):
                                                          facecolors = edgecolors,
                                                          zorder     = zorder + 1)
         
+
+
+
+    def createcolorbar(self,vmin, vmax,levels, ticks, cmap = mpl.cm.RdBu_r, orientation = "vertical"):
+
+        bounds = np.linspace         (vmin,vmax, levels)
+        norm   = mpl.colors.Normalize(vmin,vmax)
+
+
+        cb3 = mpl.colorbar.ColorbarBase(self, cmap      = cmap,
+                                              norm      = norm,
+                                              boundaries= bounds,
+                                              extend    = 'both',
+                                              extendfrac='auto',
+                                              ticks     =[-10.0,-7.5,-5,-2.5,0,2.5,5,7.5,10.0],
+                                              # spacing   = 'uniform',
+                                              orientation=orientation)
+        cb3.minorticks_off()
+        cb3.ax.tick_params(labelsize=22,direction = 'out', length = 4) 
+        super().set_aspect(20.0)
+
+        return cb3
+
 
 
 
