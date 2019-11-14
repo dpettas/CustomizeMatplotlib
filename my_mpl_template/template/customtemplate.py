@@ -5,6 +5,7 @@ import matplotlib.tri                              as mtri
 import numpy                                       as np
 from   my_mpl_template.template.matplotlibtemplate import *
 from   collections                                 import OrderedDict
+from matplotlib.markers                            import MarkerStyle
 
 
 
@@ -104,7 +105,6 @@ class CustomTemplate(MatplotlibTemplate):
                                 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn'
                               ]
 
-
         if 'cmap' in kwargs: 
             if not kwargs['cmap'] in cmaps['Sequential']:
                 print("The Acceptable cmap for background method are :")
@@ -117,6 +117,29 @@ class CustomTemplate(MatplotlibTemplate):
 
 
         return super().tripcolor(x,y,triangles, [val] * x.size, shading='flat' , cmap   =cmap, vmin   = 0.0   , vmax   = 1.0)
+
+
+
+
+    def markerpoint(self,x,y,mkr='o',fillstyle = 'full', s = 100, 
+                    edgecolors = LS.Black[0].getColor(),
+                    linewidth  = 2                     ,
+                    facecolors = LS.White[0].getColor(), 
+                    zorder=100 ):
+
+
+        super().scatter(x,y, marker = mkr,s = s, edgecolors = edgecolors    , 
+                                                 linewidth  = linewidth     ,
+                                                 facecolors = facecolors    , zorder = zorder)
+
+        if not fillstyle == 'none':
+            _marker = MarkerStyle(mkr,fillstyle)
+            super().scatter(x,y, marker = _marker, s= s, edgecolors = edgecolors, 
+                                                         linewidth  = linewidth ,
+                                                         facecolors = edgecolors,
+                                                         zorder     = zorder + 1)
+        
+
 
 
 proj.register_projection(CustomTemplate)
