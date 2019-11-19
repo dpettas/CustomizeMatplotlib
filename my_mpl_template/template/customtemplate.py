@@ -20,7 +20,7 @@ class CustomTemplate(MatplotlibTemplate):
     """
     name = 'customtemplate'
 
-    def plot(self, x, y, style = None, **kwargs):
+    def plot(self, x, y, mkr = None, style = None, **kwargs):
         
         if style: 
             kwargs["linewidth"] = style.linewidth
@@ -28,8 +28,9 @@ class CustomTemplate(MatplotlibTemplate):
             kwargs["dashes"]    = style.dashes
             kwargs["alpha"]     = style.alpha
 
+        if not mkr: mkr = '-'
 
-        return super().plot(x, y, **kwargs)
+        return super().plot(x, y, mkr, **kwargs)
 
     def triplot(self, *args, style = None,  **kwargs):
         
