@@ -80,7 +80,7 @@ class MatplotlibTemplate(Axes):
         icounter+= 1
         return subscripts[icounter] 
 
-    def ticksRename(self, x_ticks = None, y_ticks = None):
+    def ticksRename(self, xticks = None, yticks = None):
         """
         This method renames the ticks of the x and y axis. 
         as arguments we use the x_ticks and y_ticks.
@@ -90,11 +90,11 @@ class MatplotlibTemplate(Axes):
         out_x = None 
         out_y = None
 
-        bool_x = isinstance(x_ticks,list)
-        bool_y = isinstance(y_ticks,list)
+        bool_x = isinstance(xticks,list)
+        bool_y = isinstance(yticks,list)
 
-        if bool_x: out_x = self.axes.get_xaxis().set_ticks(x_ticks)
-        if bool_y: out_y = self.axes.get_yaxis().set_ticks(y_ticks)
+        if bool_x: out_x = self.axes.get_xaxis().set_ticks(xticks)
+        if bool_y: out_y = self.axes.get_yaxis().set_ticks(yticks)
 
         return out_x, out_y
 
