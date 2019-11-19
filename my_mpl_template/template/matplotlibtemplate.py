@@ -57,9 +57,6 @@ class MatplotlibTemplate(Axes):
 
         return out
 
-
-
-
     def xTicksLocator  (self, step = None , step_minor = None):
 
         if step       : self.xaxis.set_major_locator(ticker.MultipleLocator( step       ))
@@ -82,5 +79,39 @@ class MatplotlibTemplate(Axes):
         global icounter
         icounter+= 1
         return subscripts[icounter] 
+
+    def ticksRename(self, x_ticks = None, y_ticks = None):
+        """
+        This method renames the ticks of the x and y axis. 
+        as arguments we use the x_ticks and y_ticks.
+        These values by default are None. 
+        In general the latter values must be lists.
+        """
+        out_x = None 
+        out_y = None
+
+        bool_x = isinstance(x_ticks,list)
+        bool_y = isinstance(y_ticks,list)
+
+        if bool_x: out_x = self.axes.get_xaxis().set_ticks(x_ticks)
+        if bool_y: out_y = self.axes.get_yaxis().set_ticks(y_ticks)
+
+        return out_x, out_y
+
+    def ticksNull(self, which = 'both'):
+        """
+        Removes the tick labels from the x or y axis. 
+        Optional argument which = "both" or "x" or "y"
+
+        """
+
+        if   which == 'both': return self.ticksRename(x_ticks = []  , y_ticks = []  )
+        elif which == 'x'   : return self.ticksRename(x_ticks = []  , y_ticks = None)
+        elif which == 'y'   : return self.ticksRename(x_ticks = None, y_ticks = []  )
+
+
+        
+    def xticksNull(self): return self.ticksRename(x_ticks = []  , y_ticks = None)
+    def yticksNull(self): return self.ticksRename(x_ticks = None, y_ticks = []  )
 
 
