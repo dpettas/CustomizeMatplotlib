@@ -12,8 +12,10 @@ class MatplotlibTemplate(Axes):
     """ Customized Template """
     name = "matplotlibtemplate"
         
-    def set_xlabel  (self, name="", **kwargs): return super().set_xlabel(name , rotation = 0.0, **kwargs)        
-    def set_ylabel  (self, name="", **kwargs): return super().set_ylabel(name , rotation = 0.0, **kwargs)        
+    def set_xlabel  (self, name="", **kwargs):
+        return super().set_xlabel(name , rotation = 0.0, **kwargs)        
+    def set_ylabel  (self, name="", **kwargs):
+        return super().set_ylabel(name , rotation = 0.0, **kwargs)        
 
     def set_xlim (self, left=None, right=None, step=None, step_minor=None, *args, **kwargs):
 
@@ -31,9 +33,32 @@ class MatplotlibTemplate(Axes):
 
     def set_limit(self, xrange = None, yrange = None):
         if xrange:
-            self.set_xlim(left    = xrange[0], right =  xrange[1], step = xrange[2], step_minor = xrange[3]  )
+            self.set_xlim(left       = xrange[0], 
+                          right      = xrange[1],
+                          step       = xrange[2],
+                          step_minor = xrange[3]  )
         if yrange:
-            self.set_ylim(bottom  = yrange[0], top   =  yrange[1], step = yrange[2], step_minor = yrange[3]  )
+            self.set_ylim(bottom     =  yrange[0],
+                          top        =  yrange[1],
+                          step       =  yrange[2],
+                          step_minor =  yrange[3]  )
+
+    def set_axis_linewidth(self, val, which = 'all'):
+
+        axes = []
+        if    which == 'all'   : axes = ['top', 'bottom', 'left', 'right']
+        elif  which == 'top'   : axes = ['top'   ]
+        elif  which == 'bottom': axes = ['bottom']
+        elif  which == 'left'  : axes = ['left'  ]
+        elif  which == 'right' : axes = ['right' ]
+
+
+        for axis in axes: out = self.spines[axis].set_linewidth(val)
+
+        return out
+
+
+
 
     def xTicksLocator  (self, step = None , step_minor = None):
 

@@ -144,7 +144,7 @@ class CustomTemplate(MatplotlibTemplate):
 
 
 
-    def createcolorbar(self,vmin, vmax,levels, ticks, cmap = mpl.cm.RdBu_r, orientation = "vertical"):
+    def createcolorbar(self,vmin, vmax,levels, ticks = None, cmap = mpl.cm.RdBu_r, orientation = "vertical"):
 
         bounds = np.linspace         (vmin,vmax, levels)
         norm   = mpl.colors.Normalize(vmin,vmax)
