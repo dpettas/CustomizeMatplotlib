@@ -144,18 +144,34 @@ class CustomTemplate(MatplotlibTemplate):
 
 
 
-    def createcolorbar(self,vmin, vmax,levels, ticks = None, cmap = mpl.cm.RdBu_r, orientation = "vertical"):
+    def createcolorbar(self,vmin, vmax,levels = 10, ticks = None, cmap = mpl.cm.RdBu_r, orientation = "vertical"):
+        """
+            createcolorbar is a method to plot colorbar in a subplot.
+            ** vmin     low value of the bar 
+            ** vmax   upper value of the bar
+            ** levels number of levels in the colormap 
+            ** ticks (default None) if value ticks is None then the 
 
+                ticks = np.linpace(vmin,vmax, levels)
+                else ticks may be a list which contains the custom value like
+                ticks = [-10,-5, 0, 5, 10]
+
+            ** cmap is the specific choice for the color bar by default is
+                (mpl.cm.RdBu_r)
+            ** orientation is the oriantation of the colorbar (default vertical)
+
+        """
         bounds = np.linspace         (vmin,vmax, levels)
         norm   = mpl.colors.Normalize(vmin,vmax)
 
+        if not ticks: ticks = bounds
 
         cb3 = mpl.colorbar.ColorbarBase(self, cmap      = cmap,
                                               norm      = norm,
                                               boundaries= bounds,
                                               extend    = 'both',
-                                              extendfrac='auto',
-                                              ticks     =[-10.0,-7.5,-5,-2.5,0,2.5,5,7.5,10.0],
+                                              extendfrac= 'auto',
+                                              ticks     =  ticks,
                                               # spacing   = 'uniform',
                                               orientation=orientation)
         cb3.minorticks_off()

@@ -93,7 +93,7 @@ class MatplotlibTemplate(Axes):
         bool_x = isinstance(xticks,list)
         bool_y = isinstance(yticks,list)
 
-        if bool_x: out_x = self.axes.get_xaxis().set_ticks(xticks)
+        if bool_x: out_x = self.set_xticklabels(xticks)
         if bool_y: out_y = self.axes.get_yaxis().set_ticks(yticks)
 
         return out_x, out_y
@@ -105,13 +105,13 @@ class MatplotlibTemplate(Axes):
 
         """
 
-        if   which == 'both': return self.ticksRename(x_ticks = []  , y_ticks = []  )
-        elif which == 'x'   : return self.ticksRename(x_ticks = []  , y_ticks = None)
-        elif which == 'y'   : return self.ticksRename(x_ticks = None, y_ticks = []  )
+        if   which == 'both': return self.ticksRename(xticks = []  , yticks = []  )
+        elif which == 'x'   : return self.ticksRename(xticks = []  , yticks = None)
+        elif which == 'y'   : return self.ticksRename(xticks = None, yticks = []  )
 
 
         
-    def xticksNull(self): return self.ticksRename(x_ticks = []  , y_ticks = None)
-    def yticksNull(self): return self.ticksRename(x_ticks = None, y_ticks = []  )
+    def xticksNull(self): return self.ticksRename(xticks = []  , yticks = None)
+    def yticksNull(self): return self.ticksRename(xticks = None, yticks = []  )
 
 
