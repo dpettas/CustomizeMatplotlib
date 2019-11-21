@@ -103,14 +103,16 @@ class MatplotlibTemplate(Axes):
             If the latter method is called then the fontsize of the x_label 
             changes.
         """
+        if not "rotation" in kwargs: kwargs["rotation"] = 0.0
 
 
         if self.x_labelFontSize and not "fontsize" in kwargs:
             kwargs["fontsize"] = self.x_labelFontSize
+       
 
-        return super().set_xlabel(name        ,
-                                  rotation=0.0,
-                                  **kwargs)        
+        return super().set_xlabel(name , **kwargs)        
+
+
 
     def set_ylabel  (self, name="", **kwargs):
         """
@@ -122,13 +124,16 @@ class MatplotlibTemplate(Axes):
             changes.
         """
 
+        if not "rotation" in kwargs: kwargs["rotation"] = 0.0
+
 
         if self.y_labelFontSize and not "fontsize" in kwargs:
             kwargs["fontsize"] = self.y_labelFontSize
+       
 
-        return super().set_ylabel(name        ,
-                                  rotation=0.0,
-                                  **kwargs)        
+        return super().set_ylabel(name , **kwargs)        
+
+       
 
     def legend(self,*args, **kwargs):
         """
