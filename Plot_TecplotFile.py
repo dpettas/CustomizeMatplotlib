@@ -16,9 +16,6 @@ from   my_mpl_template   import Blue, Red, Green,Black, Orange
 
 tecline   = bt.LoadTecplotFile("Rect.plt", info = True)
 
-
-print()
-
 zone      = tecline.getZone()
 x         = zone["X"]
 y         = zone["Y"]

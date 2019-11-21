@@ -102,9 +102,9 @@ class CustomTemplate(MatplotlibTemplate):
     def background(self, x,y,triangles,val=0.4, **kwargs):
         cmaps = {}
         cmaps['Sequential'] = [
-                                'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
-                                'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
-                                'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn'
+                                'Greys' , 'Purples', 'Blues' , 'Greens', 'Oranges', 'Reds',
+                                'YlOrBr', 'YlOrRd' , 'OrRd'  , 'PuRd'  , 'RdPu'   , 'BuPu',
+                                'GnBu'  , 'PuBu'   , 'YlGnBu', 'PuBuGn', 'BuGn'   , 'YlGn'
                               ]
 
         if 'cmap' in kwargs: 

@@ -4,6 +4,14 @@ from   matplotlib             import ticker
 
 __SUBSCRIPTFONTSIZE__ = 18
 
+
+def set_subscriptFontsize(fontsize):
+
+    global __SUBSCRIPTFONTSIZE__
+    __SUBSCRIPTFONTSIZE__ = fontsize
+
+
+
 icounter = -1
 subscripts = [r"$(a)$",r"$(b)$",r"$(c)$",r"$(d)$",r"$(e)$",r"$(d)$",r"$(f)$",r"$(g)$",r"$(i)$"]
 
@@ -11,11 +19,127 @@ subscripts = [r"$(a)$",r"$(b)$",r"$(c)$",r"$(d)$",r"$(e)$",r"$(d)$",r"$(f)$",r"$
 class MatplotlibTemplate(Axes):
     """ Customized Template """
     name = "matplotlibtemplate"
+    def __init__(self, fig, rect,
+                 facecolor= None,  # defaults to rc axes.facecolor
+                 frameon  = True,
+                 sharex   = None,  # use Axes instance's xaxis info
+                 sharey   = None,  # use Axes instance's yaxis info
+                 label    = '',
+                 xscale   = None,
+                 yscale   = None,
+                 **kwargs):
+
         
+        Axes.__init__  (self, fig, rect,
+                        facecolor= None,  # defaults to rc axes.facecolor
+                        frameon  = True,
+                        sharex   = None,  # use Axes instance's xaxis info
+                        sharey   = None,  # use Axes instance's yaxis info
+                        label    = '',
+                        xscale   = None,
+                        yscale   = None,
+                        **kwargs)
+
+        self.x_labelFontSize   = None
+        self.y_labelFontSize   = None
+        self.legendFontSize    = None
+        self.subscriptFontSize = None
+        self.textFontsize      = None 
+
+    def enlarge(self):
+        """
+            A simple function that used with no arguments to standardize
+            the linewidth axes width in cases where the subplot occupies 
+            a [2,2] space in gridspec.
+        """
+
+        major_tick_len         = 15
+        major_tick_wid         =  4
+        minor_tick_len         =  7
+        minor_tick_wid         =  4
+        
+        axisLinewidth          = 5.5
+
+        x_labelsize            = 32
+        x_pad                  = 10 
+    
+        y_labelsize            = 32
+        y_pad                  = 10 
+ 
+        self.x_labelFontSize   = 32
+        self.y_labelFontSize   = 32
+        self.legendFontSize    = 28
+
+        self.subscriptFontSize = 32
+        self.textFontsize      = 32
+
+        out = self.tick_params(which = 'major', length    = major_tick_len,
+                                                width     = major_tick_wid)
+
+        out = self.tick_params(which = 'minor', length    = minor_tick_len,
+                                                width     = minor_tick_wid)
+
+        out = self.tick_params(axis  = "x"    , labelsize = x_labelsize,
+                                                pad       = x_pad)
+
+        out = self.tick_params(axis  = "y"    , labelsize = y_labelsize,
+                                                pad       = y_pad)
+
+        self.set_axis_linewidth(axisLinewidth)
+
+        return out
+
+
+
     def set_xlabel  (self, name="", **kwargs):
-        return super().set_xlabel(name , rotation = 0.0, **kwargs)        
+        """
+            this method override the method set_xlabel. 
+            Milestones:
+            the rotation argument is rotation = 0 to be readable the plot.
+            The second milestone is connected with the self.enlarge() method. 
+            If the latter method is called then the fontsize of the x_label 
+            changes.
+        """
+
+
+        if self.x_labelFontSize and not "fontsize" in kwargs:
+            kwargs["fontsize"] = self.x_labelFontSize
+
+        return super().set_xlabel(name        ,
+                                  rotation=0.0,
+                                  **kwargs)        
+
     def set_ylabel  (self, name="", **kwargs):
-        return super().set_ylabel(name , rotation = 0.0, **kwargs)        
+        """
+            this method override the method set_ylabel. 
+            Milestones:
+            the rotation argument is rotation = 0 to be readable the plot.
+            The second milestone is connected with the self.enlarge() method. 
+            If the latter method is called then the fontsize of the y_label 
+            changes.
+        """
+
+
+        if self.y_labelFontSize and not "fontsize" in kwargs:
+            kwargs["fontsize"] = self.y_labelFontSize
+
+        return super().set_ylabel(name        ,
+                                  rotation=0.0,
+                                  **kwargs)        
+
+    def legend(self,*args, **kwargs):
+        """
+            this method overrides the legend method to incorporate the
+            enlarge method of the class
+        """
+
+
+        if self.legendFontSize and not "fontsize" is kwargs:
+
+            kwargs["fontsize"] = self.legendFontSize
+
+
+        return super().legend(*args, **kwargs)
 
     def set_xlim (self, left=None, right=None, step=None, step_minor=None, *args, **kwargs):
 
@@ -44,6 +168,15 @@ class MatplotlibTemplate(Axes):
                           step_minor =  yrange[3]  )
 
     def set_axis_linewidth(self, val, which = 'all'):
+        """
+        set_axis_linewidth: 
+        Arguments:
+        ** val (float) is the linewidth of the axes.
+        ** which       define which axes default 'all'
+                       possible values 'top', 'bottom', 
+                                      'left', 'right'
+        """
+
 
         axes = []
         if    which == 'all'   : axes = ['top', 'bottom', 'left', 'right']
@@ -67,12 +200,33 @@ class MatplotlibTemplate(Axes):
         if step       :self.yaxis.set_major_locator(ticker.MultipleLocator(step       ))
         if step_minor :self.yaxis.set_minor_locator(ticker.MultipleLocator(step_minor ))
 
-    def subscript (self,x = -0.14, y = -0.10, s = None, fontsize = __SUBSCRIPTFONTSIZE__, **kwargs ):
+
+    def text(self, x, y, s, **kwargs):
+
+        if self.textFontsize:
+            kwargs["fontsize"] = self.textFontsize
+
+
+        return super().text(x,y,s, **kwargs)
+
+
+    def subscript (self,x = -0.14, y = -0.10, s = None, **kwargs ):
 
         tmp_s = s
         if not s: tmp_s = self.__get_subscript()
 
-        return super().text( x, y, tmp_s, fontsize = fontsize, fontdict=None,  transform=self.transAxes)
+
+        if  not self.subscriptFontSize  and not "fontsize" in kwargs:
+            kwargs["fontsize"] = __SUBSCRIPTFONTSIZE__
+        elif    self.subscriptFontSize  and not "fontsize" in kwargs: 
+            kwargs["fontsize"] = self.subscriptFontSize
+
+
+
+        return super().text( x, y, tmp_s,
+                            fontsize  = kwargs["fontsize"],
+                            fontdict  = None    ,
+                            transform =self.transAxes)
 
 
     def __get_subscript(self):
