@@ -1,7 +1,7 @@
 from   my_mpl_template.myFigure         import *
 from   my_mpl_template.linestyle        import * 
 from   my_mpl_template.template         import *
-
+from   my_mpl_template.rcParams         import *
 from   my_mpl_template                  import rcParams
 from   my_mpl_template.linestyle.dashes import *
 
@@ -15,6 +15,11 @@ Orange= []
 Cyan  = []
 Green = []
 Gray  = []
+
+
+
+
+
 
 
 

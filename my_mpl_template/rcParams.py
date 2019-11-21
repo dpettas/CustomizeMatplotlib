@@ -1,6 +1,10 @@
 import matplotlib.pyplot      as     plt
 
 
+def set_labelsize(val = 18): plt.rcParams.update({"axes.labelsize": val})
+
+
+
 
 def graph_mode(mode = "publication"):
 
