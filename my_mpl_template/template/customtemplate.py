@@ -32,6 +32,20 @@ class CustomTemplate(MatplotlibTemplate):
 
         return super().plot(x, y, mkr, **kwargs)
 
+    def verticalline(self, val, mkr = None, style = None, ylim = None, **kwargs):
+
+
+        xlim  = self.get_xlim()
+        _ylim = self.get_ylim()
+
+        if ylim: _ylim = ylim
+
+
+        x = [ val ] * 2
+        y = _ylim
+        return self.plot(x,y,mkr,style,**kwargs)
+
+
     def triplot(self, *args, style = None,  **kwargs):
         
         if style: 
