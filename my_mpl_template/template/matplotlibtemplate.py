@@ -48,6 +48,9 @@ class MatplotlibTemplate(Axes):
 
     def enlarge(self):
         """
+            Note this method should be called before the set_xlabel() and
+            set_ylabel().
+
             A simple function that used with no arguments to standardize
             the linewidth axes width in cases where the subplot occupies 
             a [2,2] space in gridspec.
