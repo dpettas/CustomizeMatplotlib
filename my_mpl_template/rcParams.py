@@ -46,8 +46,8 @@ def graph_mode(mode = "publication"):
 		plt.rcParams.update({'text.latex.preamble' :r'\usepackage{nicefrac}'})
 
 		plt.rcParams.update({'axes.linewidth'      :  4.0  } )
-		plt.rcParams.update({'axes.labelsize'      : 22.0  } )
-		plt.rcParams.update({'font.size'           : 20.0  } )
+		plt.rcParams.update({'axes.labelsize'      : 20.0  } )
+		plt.rcParams.update({'font.size'           : 18.0  } )
 		plt.rcParams.update({'font.weight'         :'bold' } )
 
 		plt.rcParams.update({'xtick.top'           : True })

@@ -55,7 +55,7 @@ def graph_mode(mode = "publication"):
 			Gray  .append  ( LineStyle (linewidth = linewidth, color = "#4E4E4E", dashes = d) )
 
 	elif mode.lower() == "presentation": 
-		linewidth = 4.5
+		linewidth = 3.5
 
 		Default     = LineStyle (linewidth = linewidth, color = "#010101", dashes = [])
 		for d in dash:
