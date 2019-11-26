@@ -45,7 +45,7 @@ def graph_mode(mode = "publication"):
 		plt.rcParams.update({'text.usetex'         : True  } )
 		plt.rcParams.update({'text.latex.preamble' :r'\usepackage{nicefrac}'})
 
-		plt.rcParams.update({'axes.linewidth'      :  4.5  } )
+		plt.rcParams.update({'axes.linewidth'      :  4.0  } )
 		plt.rcParams.update({'axes.labelsize'      : 22.0  } )
 		plt.rcParams.update({'font.size'           : 20.0  } )
 		plt.rcParams.update({'font.weight'         :'bold' } )
@@ -71,7 +71,7 @@ def graph_mode(mode = "publication"):
 		plt.rcParams.update({'ytick.minor.visible' : True })
 
 		plt.rcParams.update({'legend.frameon'      : False})
-		plt.rcParams.update({'legend.fontsize'     : 20   })
+		plt.rcParams.update({'legend.fontsize'     : 16   })
 
 
 
