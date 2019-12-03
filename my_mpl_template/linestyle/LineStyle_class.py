@@ -44,6 +44,12 @@ class LineStyle():
     def set_color(self, color):
         self.color = color 
         return self
+
+    def set_linewidth(self,linewidth):
+        self.linewidth = linewidth
+        return self
+
+
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # GETTERS
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
