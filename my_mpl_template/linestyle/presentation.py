@@ -24,4 +24,4 @@ for d in dash:
 	Orange.append  ( LineStyle (linewidth = linewidth, color = "#F89A2A", dashes = d) )
 	Cyan  .append  ( LineStyle (linewidth = linewidth, color = "#29B2B2", dashes = d) )
 	Green .append  ( LineStyle (linewidth = linewidth, color = "#60BF6E", dashes = d) )
-	Gray  .append  ( LineStyle (linewidth = linewidth, color = "#4E4E4E", dashes = d) )
+	Gray  .append  ( LineStyle (linewidth = linewidth, color = "#CCCCCC", dashes = d) )

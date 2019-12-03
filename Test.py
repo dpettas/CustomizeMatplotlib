@@ -45,6 +45,8 @@ ax.append( fig.add_subplot(gs[0,1])  )
 
 
 i = 0
+
+ax[i].increase(portion = 10.0)
 ax[i].set_xlabel(r"$Re$")
 ax[i].set_ylabel(r"$H_1$")
 ax[i].plot(F0["Re"],F0["H1"], style = Blue  [0]  ,label = r"$El = 0.00$")

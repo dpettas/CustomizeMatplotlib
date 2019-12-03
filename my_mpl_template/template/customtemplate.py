@@ -141,12 +141,13 @@ class CustomTemplate(MatplotlibTemplate):
                     edgecolors = LS.Black[0].getColor(),
                     linewidth  = 2                     ,
                     facecolors = LS.White[0].getColor(), 
-                    zorder=100 ):
+                    zorder=100, label = None ):
 
 
         super().scatter(x,y, marker = mkr,s = s, edgecolors = edgecolors    , 
                                                  linewidth  = linewidth     ,
-                                                 facecolors = facecolors    , zorder = zorder)
+                                                 facecolors = facecolors    ,
+                                                 zorder = zorder, label=label)
 
         if not fillstyle == 'none':
             _marker = MarkerStyle(mkr,fillstyle)

@@ -1,6 +1,8 @@
 
 from   matplotlib.axes        import Axes
 from   matplotlib             import ticker
+import matplotlib.pyplot      as plt
+
 
 __SUBSCRIPTFONTSIZE__ = 18
 
@@ -45,6 +47,14 @@ class MatplotlibTemplate(Axes):
         self.legendFontSize    = None
         self.subscriptFontSize = None
         self.textFontsize      = None 
+
+    def increase(self, which = 'all', portion = 1.0):
+
+        self.x_labelsize = plt.rcParams["axes.labelsize"] * portion
+
+
+        return
+
 
     def enlarge(self):
         """
