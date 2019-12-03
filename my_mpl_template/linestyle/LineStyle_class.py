@@ -40,6 +40,10 @@ class LineStyle():
     def setColor(self, color):
         self.color = color
         return self
+
+    def set_color(self, color):
+        self.color = color 
+        return self
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # GETTERS
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
