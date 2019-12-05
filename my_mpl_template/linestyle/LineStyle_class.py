@@ -49,7 +49,9 @@ class LineStyle():
         self.linewidth = linewidth
         return self
 
-
+    def set_alpha(self, alpha):
+        self.alpha = alpha 
+        return alpha
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # GETTERS
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
