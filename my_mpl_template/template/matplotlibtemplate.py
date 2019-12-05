@@ -145,7 +145,7 @@ class MatplotlibTemplate(Axes):
 
        
 
-    def legend(self,*args, **kwargs):
+    def legend(self,*args, reverse = False, **kwargs):
         """
             this method overrides the legend method to incorporate the
             enlarge method of the class
@@ -156,6 +156,9 @@ class MatplotlibTemplate(Axes):
 
             kwargs["fontsize"] = self.legendFontSize
 
+        if reverse:
+            handles, labels = super().get_legend_handles_labels()
+            return super().legend(reversed(handles), reversed(labels), **kwargs )
 
         return super().legend(*args, **kwargs)
 
