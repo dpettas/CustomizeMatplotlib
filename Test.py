@@ -16,6 +16,7 @@ F0 = FileData(filename = "./Data/El.0.00.dat", columns = HEADER)
 F1 = FileData(filename = "./Data/El.0.25.dat", columns = HEADER)
 F2 = FileData(filename = "./Data/El.0.50.dat", columns = HEADER)
 
+
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Define graph mode either publication or presentation
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>

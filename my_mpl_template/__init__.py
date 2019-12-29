@@ -67,5 +67,5 @@ def graph_mode(mode = "publication"):
             Cyan  .append  ( LineStyle (linewidth = linewidth, color = "#29B2B2", dashes = d) )
             Green .append  ( LineStyle (linewidth = linewidth, color = "#60BF6E", dashes = d) )
             Gray  .append  ( LineStyle (linewidth = linewidth, color = "#4E4E4E", dashes = d) )
-            Magenda.append  ( LineStyle (linewidth = linewidth, color = "#A544C9", dashes = d) )
+            Magenda.append ( LineStyle (linewidth = linewidth, color = "#A544C9", dashes = d) )
 
