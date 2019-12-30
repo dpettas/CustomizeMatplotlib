@@ -5,7 +5,7 @@ from   my_mpl_template          import Blue, Red, Green,Black, Orange
 from   my_mpl_template          import figure
 from   my_mpl_template.FileData import FileData
 
-
+import sys 
 
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Read Data
@@ -17,6 +17,12 @@ F1 = FileData(filename = "./Data/El.0.25.dat", columns = HEADER)
 F2 = FileData(filename = "./Data/El.0.50.dat", columns = HEADER)
 
 
+
+for r in F0:
+    print(r["Re"], r["H1"])
+
+
+sys.exit(-1)
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Define graph mode either publication or presentation
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>

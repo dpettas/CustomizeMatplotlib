@@ -5,6 +5,7 @@ import pandas            as pd
 
 import matplotlib
 from my_mpl_template.Column  import * 
+from my_mpl_template.row     import *
 from sys     import exit
 from os.path import isfile
 
@@ -61,6 +62,9 @@ class FileData():
 
         for col in self.column: colnames.append(col.name)
         return colnames
+
+    def get_column_names  (self): return " ".join(self.getColumnNames())
+    def get_number_columns(self): return len(self.getColumnNames())
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #   INLINERS METHODS
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,7 +75,7 @@ class FileData():
 
 
 
-    def HasTheSameColumns (self,other                 ): 
+    def HaveTheSameColumns (self,other                 ): 
 
         for col in self.getColumnNames():
             if (col not in other.getColumnNames()): return False
@@ -114,7 +118,11 @@ class FileData():
         out = self
         for col in out.column: col.data = col.data[::-1]
         return out
-	
+
+    def get_line(self,index): return [ c.data[index] for c in self.column]
+    def get_row (self,index): return Row(self.get_column_names(),self.get_line(index))
+
+
 #//////////////////////////////////////////////////////////////////////////
 #           MAGIC FUNCTIONS 
 #//////////////////////////////////////////////////////////////////////////
@@ -143,7 +151,8 @@ class FileData():
     
     def __iter__(self):
 
-        yield from range(len(self))
+        for i in range(len(self)):
+            yield self.get_row(i)
 
 
 
