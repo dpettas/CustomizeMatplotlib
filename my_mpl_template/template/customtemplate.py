@@ -59,11 +59,11 @@ class CustomTemplate(MatplotlibTemplate):
 
     def tricontourf(self, *args, style = None,  **kwargs):
         
-        if style: 
-            # kwargs["linewidth"] = style.linewidth * 0.15
-            # kwargs["c"]     = style.color
-            # kwargs["dashes"]    = style.dashes
-            kwargs["alpha"]     = style.alpha
+        # if style: 
+            # # kwargs["linewidth"] = style.linewidth * 0.15
+            # # kwargs["c"]         = style.color
+            # # kwargs["dashes"]    = style.dashes
+            # kwargs["alpha"]       = style.alpha
 
 
         return super().tricontourf(*args, **kwargs)
@@ -71,7 +71,7 @@ class CustomTemplate(MatplotlibTemplate):
     def tricontour(self, *args, style = None,  **kwargs):
         
         if style: 
-            # kwargs["linewidth"] = style.linewidth * 0.15
+            # kwargs["linewidth"] = style.linewidth
             # kwargs["c"]     = style.color
             # kwargs["dashes"]    = style.dashes
             kwargs["alpha"]     = style.alpha
